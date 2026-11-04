@@ -1,57 +1,42 @@
-# CAPSuLe
+<p align="center">
+  <img src="../images/capsule-logo.png" alt="CAPSuLe" width="140">
+</p>
 
-**Child and Adolescent Performance Science Laboratory**
+<h3 align="center">Child and Adolescent Performance Science Laboratory</h3>
 
-We study how children and adolescents develop as performers, and we share that
-research with coaches, parents, and young athletes. This organization holds the
-code behind [thecapsl.org](https://thecapsl.org).
+<p align="center">
+  Equipping those who shape adolescent development with actionable insights grounded in science.
+</p>
 
-## What we're building
+## What we do
 
-[`thecapsl`](https://github.com/thecapsl/thecapsl) is the lab's website. It has
-three parts:
+We translate developmental research into material that parents, teachers, coaches, and clinicians can put to use:
 
-- **Public site:** who we are, our programs, the blog archive, and ways to get
-  involved or donate.
-- **Members' library:** a weekly edition with an article and video. Some
-  editions are free samples. The rest are for subscribers.
-- **Community forum:** a members-only space for discussion, moderated by our
-  staff.
+* **Fieldwork:** a classroom curriculum that teaches resilience through the SEED Framework
+* **Prescribed Dose:** a research blog where each post turns one finding into three things you can do today
+* **Effective Dose:** a podcast of long-form interviews with the people doing the science
+* **Extended Release:** live lectures that bring researchers into community spaces
+* **Dinner & Development:** conversations about development, held around a meal
+* **WordRx:** a documentary film about the hidden prescription behind healing
 
-## How it's built
+## Under the hood
 
-| Layer        | Choice                                                          |
-| ------------ | --------------------------------------------------------------- |
-| Backend      | Python 3.12+ and Django 6.1                                     |
-| Database     | PostgreSQL 16+                                                  |
-| Payments     | Stripe: Embedded Checkout, customer portal, and signed webhooks |
-| Frontend     | Server-rendered templates with plain CSS and JavaScript         |
-| Hosting      | Amazon Web Services with gunicorn and WhiteNoise                |
+[`thecapsl`](https://github.com/thecapsl/thecapsl) runs our public site, a members' library of weekly research editions, and a members-only community forum.
 
-We keep the stack small on purpose. There's no frontend build step or extra
-service to maintain. The site is one Django project backed by a PostgreSQL
-database.
+* Built with Django 6.1 and PostgreSQL, deployed on AWS
+* Subscription billing through Stripe, with signed webhooks as the only source of access
+* Every pull request is tested on Python 3.12–3.14 against a real database before it merges
+* Locked pages contain only the public summary. Paid content never reaches someone who hasn't paid for it.
 
-## How we work
+## Get involved
 
-- **Every pull request is checked automatically.** GitHub Actions tests each PR
-  on Python 3.12, 3.13, and 3.14 against a real PostgreSQL database. It also
-  checks for missing migrations and confirms that static files build.
-- **Changes go through review.** Work happens on feature branches. Pull requests
-  merge into `staging` first and reach `master` after that.
-- **Access control is tested.** Tests cover who can see paid content, how Stripe
-  events are processed, and what staff can do. We don't want a mistake in these
-  areas to reach production.
-- **Paid content stays private.** A locked page contains only the public
-  summary. The article text and video link are never sent to a visitor who
-  doesn't have access.
-- **Billing state comes from Stripe.** Access changes only after a signed Stripe
-  webhook or a direct check with the Stripe API. Visiting a checkout success page
-  never grants access. Each Stripe event is processed only once.
-- **Secrets stay out of the repository.** Configuration comes from environment
-  variables. Keys and passwords are never committed.
+* [Explore our programs](https://thecapsl.org)
+* [Support the lab](https://thecapsl.org): we're a 501(c)(3) nonprofit
+* Follow along on [Instagram](https://www.instagram.com/the.capsl/), [LinkedIn](https://www.linkedin.com/company/the-capsl-), and [YouTube](https://www.youtube.com/@Effective-Dose)
+* Email [contact@thecapsl.org](mailto:contact@thecapsl.org) to partner with us or fund our work
 
-## Get in touch
+Visit [thecapsl.org](https://thecapsl.org) to learn more!
 
-Interested in the research, in working with us, or in supporting the lab? Visit
-[thecapsl.org](https://thecapsl.org).
+----
+
+CAPSuLe is a 501(c)(3) nonprofit, founded in 2024. By educating adults, we change the path every young person walks.
